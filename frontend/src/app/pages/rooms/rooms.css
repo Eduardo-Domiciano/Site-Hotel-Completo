@@ -1,0 +1,141 @@
+:host {
+  display: block;
+  background: var(--about-bg);
+}
+
+.rooms {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  text-align: center;
+}
+
+.rooms h2,
+.events__form h2 {
+  font-family: var(--text-font);
+  font-size: 1.6rem;
+  text-shadow: 1px 1px 2px var(--cream);
+}
+
+.rooms__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.suite {
+  background: var(--glass);
+  border: 2px solid var(--terracotta);
+  border-radius: 18px 28px;
+  padding: 0.9rem 0.9rem 1.1rem;
+  color: var(--cream);
+}
+
+.suite h3 {
+  margin: 0;
+  color: var(--terracotta);
+}
+
+.suite p {
+  min-height: 3.2rem;
+  font-size: 0.92rem;
+}
+
+.suite__media {
+  position: relative;
+}
+
+.suite img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.suite strong {
+  display: block;
+  margin-top: -1.6rem;
+  position: relative;
+  background: var(--glass);
+  padding: 0.35rem;
+  text-shadow: 1px 1px 2px var(--terracotta);
+}
+
+.suite__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.suite__actions input {
+  width: 3rem;
+  margin-left: 0.35rem;
+  color: var(--terracotta);
+}
+
+.events {
+  position: relative;
+  overflow: hidden;
+  min-height: 28rem;
+  background: #1a1a1a;
+}
+
+.events__slider {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.events__slider img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 28rem;
+  object-fit: cover;
+}
+
+.events__form {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgb(26 26 26 / 0.55);
+  color: var(--cream);
+}
+
+.events__form form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem 1.2rem;
+  max-width: 900px;
+}
+
+.events__form label,
+.events fieldset {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-shadow: 1px 1px 4px var(--terracotta);
+}
+
+.events__form input,
+.events__form select {
+  color: var(--terracotta);
+}
+
+.events fieldset {
+  border: 0;
+  gap: 0.8rem;
+}
+
+.events__ok {
+  width: 100%;
+  text-align: center;
+}

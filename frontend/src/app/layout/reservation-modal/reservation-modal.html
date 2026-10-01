@@ -1,0 +1,103 @@
+@if (reservation.open()) {
+  <div class="overlay" role="presentation" (click)="onBackdrop($event)">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="reservation-title">
+      <header class="modal__head">
+        <h2 id="reservation-title">Reserve agora</h2>
+        <button type="button" class="btn btn--icon" (click)="close()" aria-label="Fechar">X</button>
+      </header>
+
+      @if (reservation.confirmation(); as message) {
+        <p class="modal__ok">{{ message }}</p>
+      }
+      @if (reservation.error(); as error) {
+        <p class="modal__error">{{ error }}</p>
+      }
+
+      <div class="modal__dates">
+        <label>
+          Check-in
+          <input type="date" [(ngModel)]="checkInModel" name="modalCheckIn" />
+        </label>
+        <label>
+          Check-out
+          <input type="date" [(ngModel)]="checkOutModel" name="modalCheckOut" />
+        </label>
+      </div>
+
+      <div class="modal__guest">
+        <label>
+          Nome
+          <input type="text" [(ngModel)]="nameModel" name="guestName" autocomplete="name" />
+        </label>
+        <label>
+          Telefone
+          <input type="tel" [(ngModel)]="phoneModel" name="guestPhone" autocomplete="tel" />
+        </label>
+        <label>
+          E-mail
+          <input type="email" [(ngModel)]="emailModel" name="guestEmail" autocomplete="email" />
+        </label>
+      </div>
+
+      <div class="modal__rooms">
+        @for (room of rooms; track room.id) {
+          <button type="button" class="btn" (click)="add(room)">{{ room.name }}</button>
+        }
+      </div>
+
+      <div class="modal__selected">
+        @for (item of reservation.selectedRooms(); track item.uid) {
+          <article class="room-card">
+            <h3>{{ item.room.name }}</h3>
+            <img [src]="item.room.image" [alt]="'Foto do quarto ' + item.room.name" />
+            <p>
+              De {{ fromOf(item.room, item.adults) | currency: 'BRL' }} por
+              {{ priceOf(item.room, item.adults) | currency: 'BRL' }}
+            </p>
+            <p>{{ item.room.description }}</p>
+            <div class="room-card__qty">
+              <label>
+                Adultos
+                <input
+                  type="number"
+                  [min]="1"
+                  [max]="item.room.maxAdults"
+                  [ngModel]="item.adults"
+                  (ngModelChange)="occupancy(item.uid, 'adults', $event)"
+                />
+              </label>
+              <label>
+                Crianças
+                <input
+                  type="number"
+                  [min]="0"
+                  [max]="item.room.maxChildren"
+                  [ngModel]="item.children"
+                  (ngModelChange)="occupancy(item.uid, 'children', $event)"
+                />
+              </label>
+              <button type="button" class="btn btn--icon" (click)="reservation.removeRoom(item.uid)">
+                X
+              </button>
+            </div>
+          </article>
+        } @empty {
+          <p>Escolha até 3 tipos de quarto.</p>
+        }
+      </div>
+
+      <ol class="modal__rules">
+        @for (rule of policies; track rule) {
+          <li>{{ rule }}</li>
+        }
+      </ol>
+
+      <footer class="modal__foot">
+        <p>Quantidade: {{ reservation.selectedRooms().length }}</p>
+        <p>Noites: {{ reservation.nights() }}</p>
+        <p>Valor total: {{ reservation.total() | currency: 'BRL' }}</p>
+        <button type="button" class="btn" (click)="confirm()">Confirmar reserva</button>
+      </footer>
+    </section>
+  </div>
+}

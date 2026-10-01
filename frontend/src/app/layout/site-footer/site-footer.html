@@ -1,0 +1,29 @@
+<footer class="footer">
+  <div class="footer__col">
+    <h2 class="footer__title">Links</h2>
+    <a routerLink="/">Home</a>
+    <a routerLink="/sobre">Sobre nós</a>
+    <a routerLink="/acomodacoes">Acomodações</a>
+    <a routerLink="/trabalhe-conosco">Trabalhe Conosco</a>
+  </div>
+  <div class="footer__brand">
+    <p class="footer__title">{{ hotel.name }}</p>
+    <div class="footer__social">
+      <a [href]="hotel.linkedin" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/img/linkedin-icon.svg" alt="LinkedIn de Eduardo Domiciano" />
+      </a>
+      <a [href]="hotel.github" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/img/github-icon.svg" alt="GitHub de Eduardo Domiciano" />
+      </a>
+    </div>
+    <p>Nenhum direito reservado — 2026</p>
+    <p>Desenvolvido por Eduardo Domiciano</p>
+  </div>
+  <div class="footer__col">
+    <h2 class="footer__title">Contato</h2>
+    <p>{{ hotel.phone }}</p>
+    <p>{{ hotel.whatsapp }}</p>
+    <p>{{ hotel.email }}</p>
+    <p>{{ hotel.reservationsEmail }}</p>
+  </div>
+</footer>

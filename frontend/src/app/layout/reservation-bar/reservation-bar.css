@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  padding: 0.7rem 1rem;
+  background: var(--bar-bg);
+  border-top: 2px solid var(--terracotta);
+}
+
+.bar label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.bar input {
+  background: #fff;
+  border: 0;
+  padding: 0.25rem 0.4rem;
+  color: var(--terracotta);
+  max-width: 9.5rem;
+}
+
+.bar input[type='number'] {
+  width: 3.2rem;
+}
+
+@media (max-width: 800px) {
+  .bar {
+    justify-content: flex-start;
+  }
+
+  .bar label {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.page-hero {
+  min-height: 28vh;
+  display: grid;
+  place-items: center;
+  background: url('/assets/img/header_background.jpg') center / cover no-repeat;
+}
+
+.page-hero h1 {
+  margin: 0;
+  padding: 1rem;
+  font-family: var(--title-font);
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  font-weight: 400;
+  text-align: center;
+  color: #1a1a1a;
+  text-shadow:
+    1px 1px 6px var(--cream),
+    -1px 1px 6px var(--cream),
+    -1px -1px 6px var(--cream),
+    1px -1px 6px var(--cream);
+}

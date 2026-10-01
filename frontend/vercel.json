@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/garbage-hotel/browser",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

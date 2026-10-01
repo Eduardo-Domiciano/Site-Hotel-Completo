@@ -1,0 +1,42 @@
+<section class="hero">
+  <div class="hero__contacts">
+    <span>
+      <img src="/assets/img/phone.png" alt="" />
+      {{ hotel.phone }}
+    </span>
+    <span>
+      <img src="/assets/img/whats.svg" alt="" />
+      {{ hotel.whatsapp }}
+    </span>
+    <span>
+      <img src="/assets/img/mail.svg" alt="" />
+      {{ hotel.email }}
+    </span>
+    <span>
+      <img src="/assets/img/address.png" alt="" />
+      {{ hotel.address }}
+    </span>
+  </div>
+  <div class="hero__copy">
+    <h1>{{ hotel.name }}</h1>
+    <p>{{ hotel.slogan }}</p>
+  </div>
+</section>
+
+<div class="page-break" role="separator" aria-hidden="true"></div>
+
+<section class="presentation">
+  <div class="presentation__row">
+    @for (item of items; track item.title) {
+      <figure>
+        <figcaption>{{ item.title }}</figcaption>
+        <img [src]="item.image" [alt]="'Ambiente do hotel: ' + item.title" />
+      </figure>
+    }
+  </div>
+  <div class="presentation__message">
+    <h2>{{ hotel.name }}</h2>
+    <p>O mesmo conceito de hotelaria em uma nova perspectiva!</p>
+    <button type="button" class="btn" (click)="openReservation()">Reserve agora</button>
+  </div>
+</section>

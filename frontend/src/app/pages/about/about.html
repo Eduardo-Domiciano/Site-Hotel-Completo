@@ -1,0 +1,49 @@
+<app-page-header />
+
+<section class="about">
+  <article class="about__block">
+    <img src="/assets/img/sobre_nos.jpeg" alt="Monumento da Nave Espacial de Varginha" />
+    <div>
+      <h2>Nosso objetivo</h2>
+      <p>
+        Mikhalateia Hotel é um monumento de classe, conforto e exuberância — e, obviamente, fictício.
+        Localizado em Varginha, reúne empenho, requinte e um ambiente pensado para descanso. O
+        design moderno com traços coloniais busca elegância com estrutura segura e tecnologia.
+      </p>
+    </div>
+  </article>
+
+  <article class="about__block about__block--reverse">
+    <img src="/assets/img/sobre_nos_2.jpg" alt="Área externa do hotel fictício" />
+    <div>
+      <h2>Sobre nós</h2>
+      <p>
+        Oferecemos hospedagens para diferentes necessidades, além de salões para eventos e reuniões,
+        restaurante, internet, academia, piscina e estacionamento. A equipe é treinada com apoio de
+        profissionais de turismo, saúde e atendimento.
+      </p>
+    </div>
+  </article>
+
+  <section class="amenities">
+    <h2>Comodidades</h2>
+    <ul>
+      @for (item of amenities; track item.label) {
+        <li>
+          <img [src]="item.icon" [alt]="item.label" />
+          <span>{{ item.label }}</span>
+        </li>
+      }
+    </ul>
+  </section>
+</section>
+
+<section class="map">
+  <iframe
+    title="Mapa da Nave Espacial de Varginha"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.598123734589!2d-45.44366077472866!3d-21.56256383022376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ca928f8e909f35%3A0x8f2674f1c9577957!2sNave%20Espacial%20de%20Varginha!5e0!3m2!1spt-BR!2sbr!4v1699916950263!5m2!1spt-BR!2sbr"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen
+  ></iframe>
+</section>

@@ -1,0 +1,91 @@
+<app-page-header />
+
+<section class="rooms">
+  <h2>Conheça nossas acomodações</h2>
+  <div class="rooms__grid">
+    @for (room of rooms(); track room.id) {
+      <article class="suite">
+        <h3>{{ room.name }}</h3>
+        <p>{{ room.description }}</p>
+        <div class="suite__media">
+          <img [src]="room.image" [alt]="'Foto do quarto ' + room.name" />
+          <strong>
+            De {{ from(room) | currency: 'BRL' }} por {{ price(room) | currency: 'BRL' }}
+          </strong>
+        </div>
+        <div class="suite__actions">
+          <label>
+            Adultos
+            <input
+              type="number"
+              [min]="1"
+              [max]="room.maxAdults"
+              [ngModel]="adultsOf(room)"
+              (ngModelChange)="setAdults(room, $event)"
+            />
+          </label>
+          <p>Máx. crianças: {{ room.maxChildren }}</p>
+          <button type="button" class="btn" (click)="select(room)">Selecionar</button>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="events">
+  <div class="events__form">
+    <h2>Reuniões / Eventos</h2>
+    <form (ngSubmit)="requestQuote()">
+      <label>
+        Tipo de evento
+        <select [(ngModel)]="event.type" name="eventType" required>
+          <option value="" disabled>Selecione</option>
+          <option value="Cerimônia">Cerimônia</option>
+          <option value="Reunião">Reunião</option>
+        </select>
+      </label>
+      <label>
+        Nome
+        <input type="text" [(ngModel)]="event.name" name="eventName" required />
+      </label>
+      <label>
+        E-mail
+        <input type="email" [(ngModel)]="event.email" name="eventEmail" required />
+      </label>
+      <label>
+        Telefone
+        <input type="tel" [(ngModel)]="event.phone" name="eventPhone" required />
+      </label>
+      <label>
+        Quantidade de salas
+        <input type="number" min="0" max="2" [(ngModel)]="event.rooms" name="eventRooms" />
+      </label>
+      <label>
+        Quantidade de pessoas
+        <input type="number" min="0" max="150" [(ngModel)]="event.people" name="eventPeople" />
+      </label>
+      <label>
+        Data do evento
+        <input type="datetime-local" [(ngModel)]="event.date" name="eventDate" />
+      </label>
+      <fieldset>
+        <legend>Alimentação</legend>
+        <label><input type="checkbox" [(ngModel)]="event.coffee" name="coffee" /> Café e lanche</label>
+        <label><input type="checkbox" [(ngModel)]="event.lunch" name="lunch" /> Almoço</label>
+        <label><input type="checkbox" [(ngModel)]="event.dinner" name="dinner" /> Jantar</label>
+      </fieldset>
+      <button type="submit" class="btn">Pedir orçamento</button>
+      @if (event.sent) {
+        <p class="events__ok">Pedido de orçamento registrado. Entraríamos em contato por e-mail.</p>
+      }
+      @if (event.error) {
+        <p class="events__ok">{{ event.error }}</p>
+      }
+    </form>
+  </div>
+  <div class="events__slider" [style.transform]="'translateX(' + -slide() * 100 + '%)'">
+    @for (image of slides; track image) {
+      <img [src]="image" alt="Sala de reuniões do hotel" />
+    }
+  </div>
+</section>

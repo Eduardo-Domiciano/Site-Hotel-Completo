@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  padding: 2.5rem 1.5rem 6rem;
+  background: var(--footer-bg);
+  color: #1a1a1a;
+  text-align: center;
+}
+
+.footer__title {
+  font-family: var(--title-font);
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 5px var(--terracotta);
+  margin: 0 0 0.75rem;
+}
+
+.footer__col a,
+.footer__col p,
+.footer__brand p {
+  display: block;
+  margin: 0.35rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer__col a:hover {
+  color: #fff;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.75rem 0;
+}
+
+.footer__social img {
+  height: 1.5rem;
+}
+
+@media (max-width: 800px) {
+  .footer {
+    grid-template-columns: 1fr;
+    padding-bottom: 8rem;
+  }
+}

@@ -1,0 +1,23 @@
+# Binaries
+/bin/
+/api
+
+# Env
+.env
+
+# Uploads
+/uploads/
+
+# IDE / OS
+.idea/
+.vscode/
+.cursor/
+.DS_Store
+*.swp
+
+# Test / coverage
+coverage.out
+*.test
+
+# Go
+vendor/

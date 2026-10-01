@@ -1,0 +1,76 @@
+:host {
+  display: block;
+}
+
+.login {
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem 1rem 5rem;
+}
+
+.login__card {
+  width: min(520px, 100%);
+  background: rgb(0 0 0 / 0.55);
+  border-radius: 1.5rem;
+  padding: 1.5rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.login__tabs button {
+  width: 44%;
+  height: 2.6rem;
+  border: 0;
+  background: rgb(0 0 0 / 0.5);
+  color: var(--terracotta);
+  font-family: var(--text-font);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.login__tabs button:first-child {
+  border-radius: 1.6rem 0 0 0;
+}
+
+.login__tabs button:last-child {
+  border-radius: 0 1.6rem 0 0;
+}
+
+.login__tabs .active,
+.login__tabs button:hover {
+  background: var(--bar-bg);
+}
+
+.login h2 {
+  color: var(--terracotta);
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.login form {
+  display: grid;
+  gap: 0.85rem;
+  justify-items: center;
+}
+
+.login label {
+  display: grid;
+  gap: 0.25rem;
+  width: min(20rem, 100%);
+  text-align: left;
+  color: var(--cream);
+  text-shadow: 1px 1px 2px var(--terracotta);
+}
+
+.login input {
+  width: 100%;
+  padding: 0.3rem 0.4rem;
+  color: var(--terracotta);
+}
+
+.login__msg {
+  margin-top: 1rem;
+  color: var(--cream);
+}

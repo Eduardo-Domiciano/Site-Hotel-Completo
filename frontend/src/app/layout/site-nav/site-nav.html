@@ -1,0 +1,27 @@
+<nav class="nav" aria-label="Principal">
+  <a routerLink="/" class="nav__brand" (click)="closeMenu()">{{ hotel.name }}</a>
+  <button
+    type="button"
+    class="nav__toggle"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="site-menu"
+    (click)="toggleMenu()"
+  >
+    Menu
+  </button>
+  <ul id="site-menu" class="nav__list" [class.nav__list--open]="menuOpen()">
+    @for (link of links(); track link.path) {
+      <li>
+        <a
+          class="nav__link"
+          [routerLink]="link.path"
+          routerLinkActive="nav__link--active"
+          [routerLinkActiveOptions]="{ exact: link.exact }"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

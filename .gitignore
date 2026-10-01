@@ -1,0 +1,21 @@
+# Env
+.env
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+.cursor/
+*.swp
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# Backend
+backend/bin/
+backend/uploads/
+backend/coverage.out
+backend/*.test
+backend/vendor/

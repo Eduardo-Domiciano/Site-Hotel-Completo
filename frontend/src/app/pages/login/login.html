@@ -1,0 +1,71 @@
+<app-page-header />
+
+<section class="login" [style.backgroundImage]="'url(' + background + ')'">
+  <div class="login__card">
+    <div class="login__tabs">
+      <button type="button" [class.active]="mode === 'login'" (click)="mode = 'login'">Login</button>
+      <button type="button" [class.active]="mode === 'signup'" (click)="mode = 'signup'">
+        Cadastre-se
+      </button>
+    </div>
+
+    @if (mode === 'login') {
+      <form (ngSubmit)="submitLogin()">
+        <h2>Login</h2>
+        <label>
+          E-mail
+          <input type="email" [(ngModel)]="login.email" name="loginEmail" autocomplete="email" />
+        </label>
+        <label>
+          Senha
+          <input
+            type="password"
+            [(ngModel)]="login.password"
+            name="loginPassword"
+            autocomplete="current-password"
+          />
+        </label>
+        <button type="submit" class="btn">Entrar</button>
+      </form>
+    } @else {
+      <form (ngSubmit)="submitSignup()">
+        <h2>Cadastre-se</h2>
+        <label>
+          Nome
+          <input type="text" [(ngModel)]="signup.name" name="signupName" autocomplete="name" />
+        </label>
+        <label>
+          Data de nascimento
+          <input type="date" [(ngModel)]="signup.birth" name="signupBirth" />
+        </label>
+        <label>
+          E-mail
+          <input type="email" [(ngModel)]="signup.email" name="signupEmail" autocomplete="email" />
+        </label>
+        <label>
+          Senha
+          <input
+            type="password"
+            [(ngModel)]="signup.password"
+            name="signupPassword"
+            autocomplete="new-password"
+          />
+        </label>
+        <label>
+          Confirme
+          <input
+            type="password"
+            [(ngModel)]="signup.confirm"
+            name="signupConfirm"
+            autocomplete="new-password"
+          />
+        </label>
+        <button type="submit" class="btn">Cadastrar</button>
+      </form>
+    }
+
+    @if (message) {
+      <p class="login__msg">{{ message }}</p>
+    }
+  </div>
+</section>

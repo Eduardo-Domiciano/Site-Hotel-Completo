@@ -1,0 +1,19 @@
+<aside class="bar" aria-label="Busca de reservas">
+  <label>
+    Check-in
+    <input type="date" [(ngModel)]="checkInModel" name="checkIn" />
+  </label>
+  <label>
+    Check-out
+    <input type="date" [(ngModel)]="checkOutModel" name="checkOut" />
+  </label>
+  <label>
+    Adultos
+    <input type="number" min="1" max="4" [(ngModel)]="adultsModel" name="adults" />
+  </label>
+  <label>
+    Crianças
+    <input type="number" min="0" max="4" [(ngModel)]="childrenModel" name="children" />
+  </label>
+  <button type="button" class="btn" (click)="open()">Reservar</button>
+</aside>

@@ -1,0 +1,139 @@
+:host {
+  display: contents;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: auto;
+  background: rgb(0 0 0 / 0.55);
+  padding: 2rem 1rem;
+}
+
+.modal {
+  width: min(960px, 100%);
+  margin: 4rem auto;
+  padding: 1.5rem;
+  background: rgb(0 0 0 / 0.72);
+  border: 3px solid var(--terracotta);
+  color: var(--cream);
+}
+
+.modal__head,
+.modal__foot,
+.room-card__qty,
+.modal__guest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.modal__head h2 {
+  margin: 0;
+  font-family: var(--title-font);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 1px 1px 8px var(--terracotta);
+}
+
+.modal__dates {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1.25rem;
+  margin: 1em 0;
+}
+
+.modal__dates label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.modal__dates input {
+  background: #fff;
+  border: 0;
+  padding: 0.3rem 0.45rem;
+  color: var(--terracotta);
+}
+
+.modal__guest label,
+.room-card__qty label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.modal__guest input,
+.room-card__qty input {
+  padding: 0.3rem 0.45rem;
+  border: 0;
+  color: var(--terracotta);
+}
+
+.modal__guest input[type='text'],
+.modal__guest input[type='email'] {
+  min-width: 14rem;
+}
+
+.modal__rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.modal__selected {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.room-card {
+  border: 2px solid var(--terracotta);
+  padding: 0.75rem;
+  background: rgb(0 0 0 / 0.45);
+}
+
+.room-card img {
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.room-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--terracotta);
+}
+
+.modal__rules {
+  margin: 1.25rem 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.modal__ok,
+.modal__error {
+  padding: 0.75rem;
+  border-left: 3px solid var(--cream);
+}
+
+.modal__ok {
+  background: rgb(255 236 227 / 0.15);
+}
+
+.modal__error {
+  background: rgb(220 68 0 / 0.25);
+}
+
+.btn--icon {
+  width: 2.4rem;
+}

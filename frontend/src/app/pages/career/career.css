@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  background: var(--about-bg);
+}
+
+.career {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem 5rem;
+}
+
+.career__card {
+  width: min(720px, 100%);
+  background: var(--cream);
+  padding: 2rem 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.career h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.career label {
+  display: grid;
+  gap: 0.35rem;
+  font-family: var(--text-font);
+}
+
+.career input,
+.career select {
+  padding: 0.4rem;
+  color: var(--terracotta);
+}
+
+.career .btn {
+  justify-self: center;
+}

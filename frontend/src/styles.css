@@ -1,0 +1,73 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #ffece3;
+  --terracotta: #dc4400;
+  --about-bg: #b96944;
+  --footer-bg: #ca6f45;
+  --bar-bg: rgb(53, 44, 44);
+  --glass: rgb(0 0 0 / 0.45);
+  --title-font: 'Bilbo Swash Caps', cursive;
+  --text-font: 'Rajdhani', sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--text-font);
+  background: var(--footer-bg);
+  color: #1a1a1a;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.btn {
+  font-family: var(--text-font);
+  font-weight: 700;
+  color: var(--terracotta);
+  background: var(--cream);
+  border: 1px solid var(--terracotta);
+  border-radius: 5px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--terracotta);
+  color: var(--cream);
+}
+
+.page-break {
+  display: grid;
+  place-items: center;
+  height: 3.5rem;
+  background: var(--cream);
+  border-top: 2px solid var(--terracotta);
+  border-bottom: 2px solid var(--terracotta);
+}
+
+.page-break::before {
+  content: 'MH';
+  font-family: var(--title-font);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--terracotta);
+  letter-spacing: 0.04em;
+}

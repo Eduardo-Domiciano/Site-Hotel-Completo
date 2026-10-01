@@ -1,0 +1,36 @@
+<app-page-header />
+
+<section class="career">
+  <form class="career__card" (ngSubmit)="submit()">
+    <h2>Trabalhe Conosco</h2>
+    <label>
+      Área de atuação
+      <select [(ngModel)]="form.area" name="area" required>
+        <option value="" disabled>Selecione</option>
+        @for (area of areas; track area) {
+          <option [value]="area">{{ area }}</option>
+        }
+      </select>
+    </label>
+    <label>
+      Nome
+      <input type="text" [(ngModel)]="form.name" name="name" autocomplete="name" required />
+    </label>
+    <label>
+      Telefone
+      <input type="tel" [(ngModel)]="form.phone" name="phone" autocomplete="tel" />
+    </label>
+    <label>
+      E-mail
+      <input type="email" [(ngModel)]="form.email" name="email" autocomplete="email" required />
+    </label>
+    <label>
+      Currículo
+      <input type="file" accept=".pdf,.doc,.docx" (change)="onFile($event)" />
+    </label>
+    <button type="submit" class="btn">Enviar</button>
+    @if (message) {
+      <p>{{ message }}</p>
+    }
+  </form>
+</section>

@@ -1,0 +1,9 @@
+<app-site-nav />
+<main>
+  <router-outlet />
+</main>
+<app-site-footer />
+@if (showBar()) {
+  <app-reservation-bar />
+}
+<app-reservation-modal />

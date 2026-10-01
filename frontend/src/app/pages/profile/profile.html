@@ -1,0 +1,119 @@
+<app-page-header />
+
+<section class="profile">
+  @if (loading()) {
+    <p>Carregando perfil…</p>
+  } @else {
+    <div class="profile__grid">
+      <form class="card" (ngSubmit)="saveProfile()">
+        <h2>Meu perfil</h2>
+        <label>
+          Nome
+          <input type="text" [(ngModel)]="form.name" name="name" required />
+        </label>
+        <label>
+          E-mail
+          <input type="email" [ngModel]="form.email" name="email" disabled />
+        </label>
+        <label>
+          Telefone
+          <input type="tel" [(ngModel)]="form.phone" name="phone" />
+        </label>
+        <label>
+          Data de nascimento
+          <input type="date" [(ngModel)]="form.birthDate" name="birthDate" />
+        </label>
+        <button type="submit" class="btn">Salvar</button>
+      </form>
+
+      <form class="card" (ngSubmit)="savePassword()">
+        <h2>Senha</h2>
+        <label>
+          Senha atual
+          <input type="password" [(ngModel)]="password.current" name="current" required />
+        </label>
+        <label>
+          Nova senha
+          <input type="password" [(ngModel)]="password.next" name="next" required minlength="8" />
+        </label>
+        <label>
+          Confirmar
+          <input type="password" [(ngModel)]="password.confirm" name="confirm" required />
+        </label>
+        <button type="submit" class="btn">Alterar senha</button>
+      </form>
+    </div>
+
+    <section class="card reservations">
+      <h2>Minhas reservas</h2>
+      @if (reservations().length === 0) {
+        <p>Nenhuma reserva encontrada.</p>
+      } @else {
+        <ul>
+          @for (r of reservations(); track r.id) {
+            <li>
+              <button type="button" class="reservation-box" (click)="openReservation(r)">
+                <span>{{ r.roomsLabel }}</span>
+                <span>{{ r.stay }}</span>
+                <span>{{ r.nightsLabel }}</span>
+                <span>{{ r.total | currency: 'BRL' }}</span>
+                <span>{{ r.statusLabel }}</span>
+              </button>
+            </li>
+          }
+        </ul>
+      }
+    </section>
+
+    @if (message) {
+      <p class="ok">{{ message }}</p>
+    }
+    @if (error) {
+      <p class="err">{{ error }}</p>
+    }
+
+    <p class="profile__logout">
+      <button type="button" class="btn" (click)="logout()">Sair</button>
+    </p>
+  }
+</section>
+
+@if (selected(); as detail) {
+  <div class="detail-overlay" role="presentation" (click)="onBackdrop($event)">
+    <section class="detail" role="dialog" aria-modal="true" aria-labelledby="reservation-detail-title">
+      <header class="detail__head">
+        <h2 id="reservation-detail-title">{{ detail.roomsLabel }}</h2>
+        <button type="button" class="btn" (click)="closeReservation()" aria-label="Fechar">X</button>
+      </header>
+
+      <p class="detail__when">
+        <strong>Entrada:</strong> {{ detail.checkInLabel }}, a partir das 14h
+      </p>
+      <p class="detail__when">
+        <strong>Saída:</strong> {{ detail.checkOutLabel }}, até as 12h00
+      </p>
+
+      @for (room of detail.rooms; track room.roomTypeId) {
+        <article class="detail__room">
+          <h3>{{ room.name }}</h3>
+          @if (room.image) {
+            <img [src]="room.image" [alt]="'Foto do quarto ' + room.name" />
+          }
+          @if (room.description) {
+            <p>{{ room.description }}</p>
+          }
+          <p><strong>Adultos:</strong> {{ room.adults }}</p>
+          <p><strong>Crianças:</strong> {{ room.children }}</p>
+          <p>
+            <strong>Diária:</strong> {{ detail.nights }} × {{ room.nightlyPrice | currency: 'BRL' }}
+          </p>
+          <p><strong>Total do quarto:</strong> {{ room.lineTotal | currency: 'BRL' }}</p>
+        </article>
+      }
+
+      <p class="detail__total">
+        <strong>Total da reserva:</strong> {{ detail.total | currency: 'BRL' }}
+      </p>
+    </section>
+  </div>
+}
