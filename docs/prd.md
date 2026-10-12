@@ -163,7 +163,7 @@ PostgreSQL. A API Go é o único acesso. O navegador fala só com `/api/v1`.
 - Orçamento de evento e candidatura com arquivo válido são aceitos.
 - Arquivo maior que 5 MB ou de tipo não permitido é recusado.
 
-## Perguntas em aberto
+## Em planejamento
 
 - Quem aprova alteração e cancelamento, e em qual prazo.
 - Se a reserva de visitante pode ser reivindicada depois por uma conta com o mesmo e-mail.
