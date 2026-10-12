@@ -18,3 +18,4 @@ Projeto completo do Mikhalateia Hotel (front + API + Docker).
 | `frontend/` | Aplicação Angular (cópia independente do SiteHotel demo). |
 | `backend/` | API Go + migrations PostgreSQL. |
 | `docker/` | Dockerfile do web e config Nginx. |
+| `docs/` | PRD do produto e o modelo de `docdir.md`. |
